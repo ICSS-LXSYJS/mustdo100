@@ -1,0 +1,24 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "title": "在机场认真地和爸妈告别一次",
+      "img": "./assets/nihaosaoa.jpeg"
+    },
+    {
+      "id": 2,
+      "title": "一个人租房子",
+      "img": "./assets/nihaosaoa.jpeg"
+    },
+    {
+      "id": 3,
+      "title": "用心装饰自己的小窝",
+      "img": "./assets/nihaosaoa.jpeg"
+    },
+    {
+      "id": 4,
+      "title": "熬夜通宵赶due到天明",
+      "img": "./assets/nihaosaoa.jpeg"
+    }
+  ]
+}

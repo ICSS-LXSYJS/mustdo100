@@ -1,0 +1,41 @@
+<div class="container-md pt-2">
+  <ng-container *ngIf="mode === 'fill'">
+    <p>
+      <ngb-progressbar type="primary" [value]="progress"></ngb-progressbar>
+    </p>
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-8">
+        <div class="card" style="width: 100%">
+          <img src="{{current?.img}}" class="card-img-top" alt="img">
+          <div class="card-body" style="text-align: center;">
+            <h5 class="card-title">{{current?.title}}</h5>
+            <p class="card-text"></p>
+            <button (click)="next(1)" class="btn btn-primary mr-3">做过</button>
+            <button (click)="next(0)" class="btn btn-primary">还没做过</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="mode === 'result'">
+    <div class="row" id="result-container">
+      <div class="col-4 col-sm-3" *ngFor="let ques of result">
+        <div class="card" style="width: 100%">
+          <img src="{{ques.img}}" class="card-img-top" alt="img">
+          <div style="text-align: center;">
+            <p>{{ques.title}}</p>
+            <p class="card-text"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-2">
+      <div class="col-12">
+        <button (click)="html2image()" class="btn btn-primary">生成图片</button>
+      </div>
+    </div>
+  </ng-container>
+
+
+</div>
+
