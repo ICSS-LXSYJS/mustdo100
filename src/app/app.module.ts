@@ -6,11 +6,19 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ResultModalComponent } from './result-modal/result-modal.component';
+import { HomeComponent } from './home/home.component';
+import { NameComponent } from './name/name.component';
+import { ListComponent } from './list/list.component';
+import { ResultComponent } from './result/result.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ResultModalComponent
+    ResultModalComponent,
+    HomeComponent,
+    NameComponent,
+    ListComponent,
+    ResultComponent
   ],
   imports: [
     BrowserModule,
