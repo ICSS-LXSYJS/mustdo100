@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { MustdoService } from '../mustdo.service';
 
 @Component({
   selector: 'app-home',
@@ -7,11 +8,11 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  @Input() mustdo: any;
-
   @Output() nextStep: EventEmitter<boolean> = new EventEmitter<boolean>();
 
-  constructor() { }
+  constructor(
+    public mustdoSerivce: MustdoService
+  ) { }
 
   ngOnInit(): void {
   }

@@ -1,12 +1,12 @@
-<div class="w-100 h-100">
+<div class="w-100 h-100 bg-dark text-white">
   <ng-container *ngIf="step === 1">
-    <app-home [mustdo]="mustdo" (nextStep)="nextStep()"></app-home>
+    <app-home (nextStep)="nextStep()"></app-home>
   </ng-container>
   <ng-container *ngIf="step === 2">
-    <app-name></app-name>
+    <app-name (nextStep)="nextStep()"></app-name>
   </ng-container>
   <ng-container *ngIf="step === 3">
-    <app-list></app-list>
+    <app-list (nextStep)="nextStep()"></app-list>
   </ng-container>
   <ng-container *ngIf="step === 4">
     <app-result [mustdo]="mustdo" [queryParams]="queryParams"></app-result>

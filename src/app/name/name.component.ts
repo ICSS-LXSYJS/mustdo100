@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { QueryParamsService } from '../query-params.service';
 
 @Component({
   selector: 'app-name',
@@ -7,9 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NameComponent implements OnInit {
 
-  constructor() { }
+  @Output() nextStep: EventEmitter<boolean> = new EventEmitter<boolean>();
+
+  name: string;
+
+  constructor(
+    private queryParamsService: QueryParamsService
+  ) { }
 
   ngOnInit(): void {
+  }
+
+  submit() {
+    if (this.name) {
+      this.queryParamsService.updateQueryParams('name', this.name);
+      this.nextStep.emit(true);
+    }
   }
 
 }

@@ -7,7 +7,13 @@ import { Observable } from 'rxjs';
 })
 export class MustdoService {
 
-  constructor(private http: HttpClient) { }
+  mustdo: any;
+
+  constructor(private http: HttpClient) {
+    this.getMustdo().subscribe(mustdo => {
+      this.mustdo = mustdo;
+    });
+  }
 
   public getMustdo(): Observable<any> {
     return this.http.get('./assets/mustdo.json');

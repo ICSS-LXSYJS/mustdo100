@@ -1,1 +1,33 @@
-<p>list works!</p>
+<div class="list-container">
+  <div class="list-header bg-secondary">
+    <div class="row">
+      <div class="col-6 d-flex align-items-center justify-content-center">
+        {{queryParamsService.queryParams["name"]}}
+      </div>
+      <div class="col-6 px-1 py-1 d-flex align-items-center justify-content-center">
+        <div class="bg-danger text-center px-2 py-2">
+          {{numOfSelected}}<br/>已完成
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div id="auto-scroll-list" class="list-body">
+    <div *ngIf="mustdoSerivce.mustdo">
+      <div class="my-5" *ngFor="let ques of mustdoSerivce.mustdo.questions"
+        (click)="select(ques.id)">
+        <ng-container *ngIf="ifSelect(ques.id)">
+          <img class="ques-img" src="{{ques.img}}"/>
+        </ng-container>
+        <ng-container *ngIf="!ifSelect(ques.id)">
+          {{ques.title}}
+        </ng-container>
+      </div>
+    </div>
+  </div>
+  <div class="list-footer text-center">
+    <button type="button" class="btn btn-secondary">完成选择</button>
+  </div>
+</div>
+
+
