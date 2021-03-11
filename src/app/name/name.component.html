@@ -1,17 +1,20 @@
-<div class="container pt-3">
-  <div class="row">
-    <div class="col-12">
-      <div class="input-group">
-        <input type="text" [(ngModel)]="name"
-          class="form-control" placeholder="请输入你的名字"
-          aria-label="Username" aria-describedby="basic-addon1">
+<div class="d-flex h-100">
+  <div class="container mt-auto mb-auto">
+    <div class="row">
+      <div class="col-12">
+        <div class="input-group">
+          <input type="text" [(ngModel)]="name"
+            class="form-control" placeholder="请输入你的名字"
+            aria-label="Username" aria-describedby="basic-addon1">
+        </div>
       </div>
-    </div>
-    <div class="col-12 mt-3 text-center">
-      <button type="button" class="btn btn-secondary {{name ? '' : 'disabled'}}"
-        (click)="submit()">
-        开始
-      </button>
+      <div class="col-12 mt-3 text-center">
+        <button type="button" class="btn btn-secondary {{name ? '' : 'disabled'}}"
+          (click)="submit()">
+          开始
+        </button>
+      </div>
     </div>
   </div>
 </div>
+
