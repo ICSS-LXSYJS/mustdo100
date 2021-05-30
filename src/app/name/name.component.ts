@@ -11,6 +11,7 @@ export class NameComponent implements OnInit {
   @Output() nextStep: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   name: string;
+  country: string;
 
   constructor(
     private queryParamsService: QueryParamsService
@@ -22,6 +23,7 @@ export class NameComponent implements OnInit {
   submit() {
     if (this.name) {
       this.queryParamsService.updateQueryParams('name', this.name);
+      this.queryParamsService.updateQueryParams('country', this.country);
       this.nextStep.emit(true);
     }
   }

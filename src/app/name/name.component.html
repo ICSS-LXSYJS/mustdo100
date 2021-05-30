@@ -8,6 +8,13 @@
             aria-label="Username" aria-describedby="basic-addon1">
         </div>
       </div>
+      <div class="col-12">
+        <div class="input-group">
+          <input type="text" [(ngModel)]="country"
+            class="form-control" placeholder="你所留学的国家"
+            aria-label="country" aria-describedby="basic-addon1">
+        </div>
+      </div>
       <div class="col-12 mt-3 text-center">
         <button type="button" class="btn btn-secondary {{name ? '' : 'disabled'}}"
           (click)="submit()">

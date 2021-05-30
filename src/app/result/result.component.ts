@@ -20,6 +20,7 @@ export class ResultComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.generateResult();
   }
 
   generateResult() {
