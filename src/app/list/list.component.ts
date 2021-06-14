@@ -55,4 +55,11 @@ export class ListComponent implements OnInit {
     return retVal;
   }
 
+  getCoordinate(ques) {
+    const index = this.mustdoSerivce.mustdo.questions.findIndex(q => q.id === ques.id);
+    const row = parseInt((index / 6).toString(), 10);
+    const col = index % 6;
+    return `background-position: -${col * 133}px -${row * 133}px`;
+  }
+
 }

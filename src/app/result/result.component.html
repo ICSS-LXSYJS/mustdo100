@@ -1,7 +1,9 @@
 <div class="row" id="result-container">
   <div class="col-4 col-sm-3" *ngFor="let ques of result">
     <div class="card" style="width: 100%">
-      <img src="{{ques.img}}" class="card-img-top" alt="img">
+      <div class="ques-img"
+        style="{{getCoordinate(ques)}}">
+      </div>
       <div style="text-align: center;">
         <p>{{ques.title}}</p>
         <p class="card-text"></p>

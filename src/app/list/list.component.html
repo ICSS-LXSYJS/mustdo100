@@ -14,13 +14,15 @@
   </div>
   <div id="auto-scroll-list" class="list-body">
     <div *ngIf="mustdoSerivce.mustdo">
-      <div class="my-5" *ngFor="let ques of mustdoSerivce.mustdo.questions"
+      <div class="my-5 d-flex" *ngFor="let ques of mustdoSerivce.mustdo.questions"
         (click)="select(ques.id)">
         <ng-container *ngIf="ifSelect(ques.id)">
-          <img class="ques-img" src="{{ques.img}}"/>
+          <div class="ques-img"
+            style="{{getCoordinate(ques)}}">
+          </div>
         </ng-container>
         <ng-container *ngIf="!ifSelect(ques.id)">
-          {{ques.title}}
+          <span class="mr-auto ml-auto">{{ques.title}}</span>
         </ng-container>
       </div>
     </div>

@@ -51,4 +51,11 @@ export class ResultComponent implements OnInit {
       });
   }
 
+  getCoordinate(ques) {
+    const index = this.mustdo.questions.findIndex(q => q.id === ques.id);
+    const row = parseInt((index / 6).toString(), 10);
+    const col = index % 6;
+    return `background-position: -${col * 133}px -${row * 133}px`;
+  }
+
 }
