@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import * as htmlToImage from 'html-to-image';
 import { toPng, toJpeg, toBlob, toPixelData, toSvg } from 'html-to-image';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
@@ -9,7 +9,7 @@ import { ResultModalComponent } from '../result-modal/result-modal.component';
   templateUrl: './result.component.html',
   styleUrls: ['./result.component.scss']
 })
-export class ResultComponent implements OnInit {
+export class ResultComponent implements OnInit, OnChanges {
 
   @Input() queryParams = {};
   @Input() mustdo: any;
@@ -23,7 +23,12 @@ export class ResultComponent implements OnInit {
     this.generateResult();
   }
 
+  ngOnChanges(): void {
+    this.generateResult();
+  }
+
   generateResult() {
+    console.log(this.mustdo);
     for (const [key, value] of Object.entries(this.queryParams)) {
       if (value === '1') {
         const id = parseInt(key, 10);

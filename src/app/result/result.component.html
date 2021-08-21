@@ -1,18 +1,17 @@
 <div class="row" id="result-container">
-  <div class="col-4 col-sm-3" *ngFor="let ques of result">
-    <div class="card" style="width: 100%">
+  <div class="col-6 d-flex justify-content-center align-items-center" *ngFor="let ques of result">
+    <div class="card bg-dark" style="width: 133px; height: 200px;">
       <div class="ques-img"
-        style="{{getCoordinate(ques)}}">
+        style="{{getCoordinate(ques)}};">
       </div>
       <div style="text-align: center;">
-        <p>{{ques.title}}</p>
-        <p class="card-text"></p>
+        <p class="card-text">{{ques.title}}</p>
       </div>
     </div>
   </div>
 </div>
 <div class="row mt-2">
-  <div class="col-12">
+  <div class="col-12 d-flex justify-content-center align-items-center">
     <button (click)="html2image()" class="btn btn-primary">生成图片</button>
   </div>
 </div>
