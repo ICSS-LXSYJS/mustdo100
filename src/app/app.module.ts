@@ -29,7 +29,6 @@ import { ResultComponent } from './result/result.component';
     FormsModule
   ],
   providers: [],
-  bootstrap: [AppComponent],
-  entryComponents: [ResultModalComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

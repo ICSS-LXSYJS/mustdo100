@@ -3,6 +3,7 @@ import * as htmlToImage from 'html-to-image';
 import { toPng, toJpeg, toBlob, toPixelData, toSvg } from 'html-to-image';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ResultModalComponent } from '../result-modal/result-modal.component';
+import * as html2canvas from 'html2canvas';
 
 @Component({
   selector: 'app-result',
@@ -16,6 +17,7 @@ export class ResultComponent implements OnInit {
   result = [];
   name = '';
   country = '';
+  dataUrl = '';
 
   constructor(
     private modalService: NgbModal
@@ -47,16 +49,24 @@ export class ResultComponent implements OnInit {
     const node = document.getElementById('result-container');
     console.log(node);
 
-    htmlToImage.toPng(node)
-      .then((dataUrl) => {
-        const modalRef = this.modalService.open(ResultModalComponent, {
-          size: 'xl'
-        });
-        modalRef.componentInstance.dataUrl = dataUrl;
-      })
-      .catch((error) => {
-        console.error('oops, something went wrong!', error);
+    // htmlToImage.toPng(node)
+    //   .then((dataUrl) => {
+    //     const modalRef = this.modalService.open(ResultModalComponent, {
+    //       size: 'xl'
+    //     });
+    //     modalRef.componentInstance.dataUrl = dataUrl;
+    //   })
+    //   .catch((error) => {
+    //     console.error('oops, something went wrong!', error);
+    //   });
+
+    html2canvas(node).then(canvas => {
+      const imgData = canvas.toDataURL('image/png');
+      const modalRef = this.modalService.open(ResultModalComponent, {
+        size: 'xl'
       });
+      modalRef.componentInstance.dataUrl = imgData;
+    });
   }
 
   getCoordinate(ques) {

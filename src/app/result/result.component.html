@@ -21,6 +21,10 @@
   </div>
 </div>
 
+<div *ngIf="dataUrl">
+  <app-result-modal [dataUrl]="dataUrl"></app-result-modal>
+</div>
+
 <div class="row mt-2 bg-dark">
   <div class="col-12 d-flex justify-content-center align-items-center">
     <button (click)="html2image()" class="btn btn-primary">生成图片</button>
