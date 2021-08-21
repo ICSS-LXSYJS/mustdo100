@@ -9,11 +9,13 @@ import { ResultModalComponent } from '../result-modal/result-modal.component';
   templateUrl: './result.component.html',
   styleUrls: ['./result.component.scss']
 })
-export class ResultComponent implements OnInit, OnChanges {
+export class ResultComponent implements OnInit {
 
   @Input() queryParams = {};
   @Input() mustdo: any;
   result = [];
+  name = '';
+  country = '';
 
   constructor(
     private modalService: NgbModal
@@ -23,13 +25,14 @@ export class ResultComponent implements OnInit, OnChanges {
     this.generateResult();
   }
 
-  ngOnChanges(): void {
-    this.generateResult();
-  }
-
   generateResult() {
     console.log(this.mustdo);
     for (const [key, value] of Object.entries(this.queryParams)) {
+      if (key === 'name') {
+        this.name = value as string;
+      } else if (key === 'country') {
+        this.country = value as string;
+      }
       if (value === '1') {
         const id = parseInt(key, 10);
         const question = this.mustdo.questions.find(q => q.id === id);

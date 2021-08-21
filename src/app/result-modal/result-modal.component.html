@@ -1,10 +1,11 @@
 <div class="modal-header">
-  <h4 class="modal-title">分享</h4>
+  <h4 class="modal-title">长按保存图片</h4>
   <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
     <span aria-hidden="true">&times;</span>
   </button>
 </div>
 <div class="modal-body">
+  <canvas id='canvasCrop' hidden></canvas>
   <div id="result-img-container" class="text-center"></div>
 </div>
 <div class="modal-footer">

@@ -16,7 +16,7 @@ export class AppComponent implements OnInit {
   // 2: name
   // 3: list
   // 4: result
-  step = 4;
+  step = 1;
 
   constructor(
     public mustdoService: MustdoService,
