@@ -1,17 +1,32 @@
-<div class="container-fluid" id="result-container">
-  <div class="row bg-dark">
-    <div class="col-6 d-flex align-items-center justify-content-center bg-secondary">
+<div class="container-fluid" id="result-container"
+style="background-image: url(./assets/result.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    padding-top: 500px;
+    padding-bottom: 500px">
+  <div class="row">
+    <!-- <div class="col-6 d-flex align-items-center justify-content-center bg-secondary">
         {{name}}<br/>{{country}}
     </div>
     <div class="col-6 d-flex align-items-center justify-content-center bg-secondary">
       <div class="bg-danger text-center px-2 py-2">
         {{result.length}}<br/>已完成
       </div>
-    </div>
+    </div> -->
     <div class="col-6 d-flex justify-content-center align-items-center" *ngFor="let ques of result">
-      <div class="card bg-dark" style="width: 133px; height: 200px;">
+      <div class="card" style="width: 133px; height: 200px;">
         <div class="ques-img"
-          style="{{getCoordinate(ques)}};">
+          style="{{mustdoSerivce.getCoordinate(ques)}};">
+        </div>
+        <div style="text-align: center;">
+          <p class="card-text">{{ques.title}}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-6 d-flex justify-content-center align-items-center" *ngFor="let ques of result2">
+      <div class="card" style="width: 500px; height: 700px;">
+        <div class="ques-img-2"
+          style="{{mustdoSerivce.getCoordinate2(ques)}};">
         </div>
         <div style="text-align: center;">
           <p class="card-text">{{ques.title}}</p>

@@ -18,7 +18,18 @@
         (click)="select(ques.id)">
         <ng-container *ngIf="ifSelect(ques.id)">
           <div class="ques-img"
-            style="{{getCoordinate(ques)}}">
+            style="{{mustdoSerivce.getCoordinate(ques)}}">
+          </div>
+        </ng-container>
+        <ng-container *ngIf="!ifSelect(ques.id)">
+          <span class="mr-auto ml-auto">{{ques.title}}</span>
+        </ng-container>
+      </div>
+      <div class="my-5 d-flex" *ngFor="let ques of mustdoSerivce.mustdo.questions2"
+        (click)="select(ques.id)">
+        <ng-container *ngIf="ifSelect(ques.id)">
+          <div class="ques-img-2"
+            style="{{mustdoSerivce.getCoordinate2(ques)}}">
           </div>
         </ng-container>
         <ng-container *ngIf="!ifSelect(ques.id)">

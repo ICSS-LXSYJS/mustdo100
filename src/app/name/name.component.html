@@ -1,5 +1,8 @@
-<div class="d-flex h-100">
-  <div class="container mt-auto mb-auto">
+<div class="d-flex h-100"
+style="background-image: url(./assets/name.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;">
+  <div class="container mt-auto mb-auto" style="margin-left: 10%; margin-right: 10%;">
     <div class="row">
       <div class="col-12">
         <div class="input-group">
@@ -8,7 +11,7 @@
             aria-label="Username" aria-describedby="basic-addon1">
         </div>
       </div>
-      <div class="col-12">
+      <div class="col-12 mt-3">
         <div class="input-group">
           <input type="text" [(ngModel)]="country"
             class="form-control" placeholder="你所留学的国家"
@@ -16,7 +19,7 @@
         </div>
       </div>
       <div class="col-12 mt-3 text-center">
-        <button type="button" class="btn btn-secondary {{name ? '' : 'disabled'}}"
+        <button type="button" class="btn btn-secondary {{name && country ? '' : 'disabled'}}"
           (click)="submit()">
           开始
         </button>

@@ -4,6 +4,7 @@ import { toPng, toJpeg, toBlob, toPixelData, toSvg } from 'html-to-image';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ResultModalComponent } from '../result-modal/result-modal.component';
 import * as html2canvas from 'html2canvas';
+import { MustdoService } from '../mustdo.service';
 
 @Component({
   selector: 'app-result',
@@ -15,12 +16,14 @@ export class ResultComponent implements OnInit {
   @Input() queryParams = {};
   @Input() mustdo: any;
   result = [];
+  result2 = [];
   name = '';
   country = '';
   dataUrl = '';
 
   constructor(
-    private modalService: NgbModal
+    private modalService: NgbModal,
+    public mustdoSerivce: MustdoService
   ) { }
 
   ngOnInit(): void {
@@ -37,9 +40,13 @@ export class ResultComponent implements OnInit {
       }
       if (value === '1') {
         const id = parseInt(key, 10);
-        const question = this.mustdo.questions.find(q => q.id === id);
+        let question = this.mustdo.questions.find(q => q.id === id);
         if (question) {
           this.result.push(question);
+        }
+        question = this.mustdo.questions2.find(q => q.id === id);
+        if (question) {
+          this.result2.push(question);
         }
       }
     }
@@ -67,13 +74,6 @@ export class ResultComponent implements OnInit {
       });
       modalRef.componentInstance.dataUrl = imgData;
     });
-  }
-
-  getCoordinate(ques) {
-    const index = this.mustdo.questions.findIndex(q => q.id === ques.id);
-    const row = parseInt((index / 6).toString(), 10);
-    const col = index % 6;
-    return `background-position: -${col * 133}px -${row * 133}px`;
   }
 
 }
