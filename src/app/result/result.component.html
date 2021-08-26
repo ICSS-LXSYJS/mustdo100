@@ -17,18 +17,8 @@
     <div>
       <img src="./assets/result-title.jpg" class="w-100">
     </div>
-    <div class="col-6 d-flex justify-content-center align-items-center" *ngFor="let ques of result">
-      <div class="card" style="width: 150px; height: 200px;">
-        <div class="ques-img mt-1"
-          style="{{mustdoSerivce.getCoordinate(ques)}};">
-        </div>
-        <div style="text-align: center;">
-          <p class="card-text">{{ques.title}}</p>
-        </div>
-      </div>
-    </div>
     <div class="col-6 d-flex justify-content-center align-items-center" *ngFor="let ques of result2">
-      <div class="card" style="width: 150px; height: 200px;">
+      <div class="card" style="width: 155px; height: 200px;">
         <div class="ques-img-2 mt-1"
           style="{{mustdoSerivce.getCoordinate2(ques, 'questions2')}};">
         </div>
@@ -38,7 +28,7 @@
       </div>
     </div>
     <div class="col-6 d-flex justify-content-center align-items-center" *ngFor="let ques of result3">
-      <div class="card" style="width: 150px; height: 200px;">
+      <div class="card" style="width: 155px; height: 200px;">
         <div class="ques-img-3 mt-1"
           style="{{mustdoSerivce.getCoordinate2(ques, 'questions3')}};">
         </div>
@@ -48,9 +38,19 @@
       </div>
     </div>
     <div class="col-6 d-flex justify-content-center align-items-center" *ngFor="let ques of result4">
-      <div class="card" style="width: 150px; height: 200px;">
+      <div class="card" style="width: 155px; height: 200px;">
         <div class="ques-img-4 mt-1"
           style="{{mustdoSerivce.getCoordinate2(ques, 'questions4')}};">
+        </div>
+        <div style="text-align: center;">
+          <p class="card-text">{{ques.title}}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-6 d-flex justify-content-center align-items-center" *ngFor="let ques of result">
+      <div class="card" style="width: 155px; height: 200px;">
+        <div class="ques-img mt-1"
+          style="{{mustdoSerivce.getCoordinate(ques)}};">
         </div>
         <div style="text-align: center;">
           <p class="card-text">{{ques.title}}</p>
