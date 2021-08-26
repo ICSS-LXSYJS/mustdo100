@@ -17,6 +17,8 @@ export class ResultComponent implements OnInit {
   @Input() mustdo: any;
   result = [];
   result2 = [];
+  result3 = [];
+  result4 = [];
   name = '';
   country = '';
   dataUrl = '';
@@ -47,6 +49,14 @@ export class ResultComponent implements OnInit {
         question = this.mustdo.questions2.find(q => q.id === id);
         if (question) {
           this.result2.push(question);
+        }
+        question = this.mustdo.questions3.find(q => q.id === id);
+        if (question) {
+          this.result3.push(question);
+        }
+        question = this.mustdo.questions4.find(q => q.id === id);
+        if (question) {
+          this.result4.push(question);
         }
       }
     }
