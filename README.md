@@ -16,28 +16,42 @@ Tony老师不会理发，却是一名集编程技术与文学素养于一身的�
 
 ### 前端框架——Angular
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.2.
+这个项目所运用到的主要技术，就是Angular。
 
-## Development server
+相信对前端技术有一定了解的朋友都听说过前端三大框架——Vue，React，Angular。
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Vue因为其亲民而又完善的中文文档，在国内相当盛行，而它也和React一样，因为容易上手而深受初学者喜爱。相反地，你在Angular上能看到更多工程化的影子，各种层各种结构非常清晰，分工明确，不会像Vue或者React杂糅在一起。有些人一开始可能会不太适应这种分层的而更喜欢Vue和React这种直给的，但当你理解了Angular的设计逻辑，你一定能感受到它的魅力。
 
-## Code scaffolding
+这些框架虽然各有不同，但殊途同归，它们的本质都是JavaScript（TypeScript）+ CSS + HTML，也就是我们在浏览器中所看到的所有网页的本质。
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+那为什么会有这些框架的产生呢？
 
-## Build
+那是因为如今Web技术的运用已越来越广泛，早已不是一个单纯的网站展示这么简单。
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+它可以是公司或者个人首页，可以是商城，可以是资源管理系统，可以是微信小程序，也可以是一个APP，就像我们在App Store里面下载的那些APP一样。
 
-## Running unit tests
+现在甚至在一些其他框架（比如Electron，Ionic，React Native等等）的帮助下，你甚至可以通过一套Web的代码，实现桌面应用，Web应用，安卓应用和苹果应用的多维度跨平台同步开发。由于安卓和苹果所使用的语言并不相同，如果我们要做一个手机APP，就需要安卓做一遍，苹果再做一遍，但如果转而使用Web相关技术的话，开发的时间就能在理论上缩小一半。
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+当然这样的作法必然有一定的局限性，比如对手机硬件的一些调用，比如速度，所以使用哪种技术还应该具体问题具体分析。
 
-## Running end-to-end tests
+### 编程技术与平面设计的完美结合
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+这个项目中我最主要学习到的，就是作为一个程序员如何和我们的美工小伙伴合作。
 
-## Further help
+一个页面中包括有各种文字和图片，那我们首先就需要去确定，我们是需要美工直接给我们一张完整的大图，还是给我们n个小块我们再在HTML中排版。
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+比如说我们的首页（home.component），我们就是直接用了一张完整的图片来做背景，代码如下：
+
+```CSS
+    background-image: url({{mustdoSerivce.mustdo?.homeImg}});
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+```
+
+这里`{{mustdoSerivce.mustdo?.homeImg}}`就是图片所在的位置。
+
+由于每个手机的尺寸各不相同，所以我们在与美工的沟通过程中并没有具体要求图片的尺寸，而是仅仅要求大概比例对就行，然后我们再把图片的宽和高设成与屏幕一致，这样可以实现图片全屏，而且基本不会失真。
+
+而另一种更好的，保证不会失真的做法，就是使用图片的原尺寸，这样不同尺寸的屏幕看到的就是背景图的不同部分。当然这种做法就需要我们的美工小伙伴们在制作背景图的过程中，要留出一定的余地，不管屏幕的大小如何，背景都要是看起来OK的。
+
+再比如我们展示结果的一页（result.component），由于每个人选择的事件数量是不同的，我们无法预估这些事件显示出来会有多长，所以这种情况下我们将一整张背景图拆分成了页头和页尾两张图片，插在这些事件的前面和后面。
